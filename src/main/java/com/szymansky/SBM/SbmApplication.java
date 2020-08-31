@@ -11,6 +11,7 @@ public class SbmApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SbmApplication.class, args);
+
 	}
 
 

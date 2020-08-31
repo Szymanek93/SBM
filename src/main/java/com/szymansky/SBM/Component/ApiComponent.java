@@ -20,19 +20,4 @@ public class ApiComponent {
     @Autowired
     public ApiComponent(EmployeeRepository emlpoyeRepo){this.emlpoyeRepo=emlpoyeRepo; }
 
-//public void ApiReadyExecute(){
-//    InitializeEmployees();
-//}
-//////Dodaje startową bazędanych pracowników
-////private void InitializeEmployees(){
-////        System.out.println("Adding employees");
-////        Employee employee1 = new Employee("Jan","Borys");
-////        Employee employee2 = new Employee("Kazimierz","Jan");
-////        Employee employee3 = new Employee("Borys","Kazimierz");
-////        emlpoyeRepo.save(employee1);
-////        emlpoyeRepo.save(employee2);
-////        emlpoyeRepo.save(employee3);
-////}
-
-
 }
