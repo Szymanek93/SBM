@@ -1,24 +1,15 @@
 package com.szymansky.SBM.RestController;
 
-
-import com.sun.el.lang.ELArithmetic;
 import com.szymansky.SBM.Entity.Employee;
 import com.szymansky.SBM.Exception.ResourceNotFoundException;
 import com.szymansky.SBM.Repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -46,16 +37,17 @@ public class EmployeeRestController {
     }
 
     //add new record
-    @PostMapping("/add")
+    @PostMapping("")
     public Employee addEmployee(@RequestBody Employee employee) {
         return emlpoyeRepo.save(employee);
     }
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDettails)
-        throws ResourceNotFoundException{ Employee employee = emlpoyeRepo.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
+    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDettails)
+            throws ResourceNotFoundException {
+        Employee employee = emlpoyeRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
 
         employee.setId(employeeDettails.getId());
         employee.setName(employeeDettails.getName());
