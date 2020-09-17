@@ -5,7 +5,12 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-<!--    <include file='addEmployee.xml' relativeToChangelogFile="true"/>-->
-<!--    <include file='addTableBusiness.xml' relativeToChangelogFile="true"/>-->
+    <changeSet author="PS" id="1">
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Piotr" type="varchar(255)"/>
+            <column name='name' value="Szymański" type="varchar(255)"/>
+        </insert>
+    </changeSet>
+
 
 </databaseChangeLog>

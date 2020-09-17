@@ -1,11 +1,6 @@
 package com.szymansky.SBM.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-import javax.persistence.Entity;
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
@@ -18,10 +13,15 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String name;
+    @Column(name="lastName")
     private String lastName;
 
     public Employee(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
+    }
+
+    public Employee(Long id) {
+        Id = id;
     }
 }

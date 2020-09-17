@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+<!--    <changeSet author="PS" id="1">-->
+<!--        <createTable tableName="Business">-->
+<!--            <column name="Id" type="integer"/>-->
+<!--            <column name="businessType" type="varchar(255)"/>-->
+<!--            <column name="businessName" type="varchar(255)"/>-->
+<!--            <column name="businessCity" type="varchar(255)"/>-->
+<!--            <column name="businessPostCode" type="integer"/>-->
+<!--            <column name="businessStreet" type="varchar(255)"/>-->
+<!--            <column name="businessHouseNumber" type="varchar(255)"/>-->
+<!--            <column name="businessDetails" type="varchar(255)"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+
+<!--</databaseChangeLog>-->

@@ -19,13 +19,13 @@ public class EmployeeRestController {
 
     private List<Employee> employeeList;
 
-    private final EmployeeRepository emlpoyeRepo;
+    private final EmployeeRepository emoloyeRepo;
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeesById(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
-        Employee employee = emlpoyeRepo.findById(id)
+        Employee employee = emoloyeRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
         return ResponseEntity.ok().body(employee);
     }
@@ -33,36 +33,36 @@ public class EmployeeRestController {
     //wyszukiwanie wszystkich obiektów
     @GetMapping("")
     public List<Employee> getEmployees() {
-        return emlpoyeRepo.findAll();
+        return emoloyeRepo.findAll();
     }
 
     //add new record
     @PostMapping("")
     public Employee addEmployee(@RequestBody Employee employee) {
-        return emlpoyeRepo.save(employee);
+        return emoloyeRepo.save(employee);
     }
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDettails)
+    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDetails)
             throws ResourceNotFoundException {
-        Employee employee = emlpoyeRepo.findById(id)
+        Employee employee = emoloyeRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
 
-        employee.setId(employeeDettails.getId());
-        employee.setName(employeeDettails.getName());
-        employee.setLastName(employeeDettails.getLastName());
-        final Employee updatedEmployee = emlpoyeRepo.save(employee);
+        employee.setId(employeeDetails.getId());
+        employee.setName(employeeDetails.getName());
+        employee.setLastName(employeeDetails.getLastName());
+        final Employee updatedEmployee = emoloyeRepo.save(employee);
         return ResponseEntity.ok(updatedEmployee);
     }
 
     @DeleteMapping("/{id}")
     public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
-        Employee employee = emlpoyeRepo.findById(id)
+        Employee employee = emoloyeRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id::" + id));
 
-        emlpoyeRepo.delete(employee);
+        emoloyeRepo.delete(employee);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
@@ -72,9 +72,9 @@ public class EmployeeRestController {
 //    //@PostMapping("/dodaj")
 //    public void InitializeEmployees() {
 //        Employee employee1 = new Employee("Jan", "Borys");
-//        Employee employee2 = new Employee("Kazimierz", "Jan");
-//        Employee employee3 = new Employee("Borys", "Kazimierz");
-//        Employee employee4 = new Employee("Bys", "ierz");
+//        Employee employee2 = new Employee("Kazimierz", "Długi");
+//        Employee employee3 = new Employee("Borys", "Prosty");
+//        Employee employee4 = new Employee("Jan", "Nowak");
 //        emlpoyeRepo.save(employee1);
 //        emlpoyeRepo.save(employee2);
 //        emlpoyeRepo.save(employee3);
