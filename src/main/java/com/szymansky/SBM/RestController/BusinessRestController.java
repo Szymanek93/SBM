@@ -47,7 +47,7 @@ public class BusinessRestController {
                 .orElseThrow(() -> new ResourceNotFoundException("Business not found for this id :: " + id));
 
         business.setId(businessDetails.getId());
-        business.setBusinessOwner(businessDetails.getBusinessOwner());
+        business.setOwner(businessDetails.getOwner());
         business.setBusinessType(businessDetails.getBusinessType());
         business.setBusinessName(businessDetails.getBusinessName());
         business.setBusinessCity(businessDetails.getBusinessCity());

@@ -15,10 +15,12 @@ public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long Id;
-    @ManyToOne
-    @JoinColumn(name="Owner_Id")
-    private Business businessOwner;
 
+//    @ManyToOne (optional = false)
+//    @JoinColumn(name="Owner_Id")
+//    private Business businessOwnerId;
+    @OneToOne
+    private Owner owner;
 
     @Column(name = "Type", nullable = true)
     private String businessType;
@@ -35,5 +37,9 @@ public class Business {
     @Column(name = "Details", nullable = true)
     private String businessDetails;
 
+    public String getOwnerName() {
+        return getBusinessName();
+    }
 }
+
 

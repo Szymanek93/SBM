@@ -26,11 +26,12 @@ public class Owner {
     @Column(name="HouseNumber", nullable=true)
     private String ownerHouseNumber;
     @Column(name="PhoneNumber")
-    private Long ownerPhone;
+    private  Long ownerPhone;
 
-    private String ownerBusiness;
-    @OneToMany (mappedBy = "businessOwner")
-    private List<Business> ownerBusinessId;
+    //private String ownerBusiness;
+//    @OneToMany (mappedBy = "businessOwnerId")
+//    private List<Business> ownerBusinessId;
+
 
 
 }

@@ -51,8 +51,8 @@ public class OwnerRestController {
         owner.setOwnerStreet(ownerDetails.getOwnerStreet());
         owner.setOwnerHouseNumber(ownerDetails.getOwnerHouseNumber());
         owner.setOwnerPhone(ownerDetails.getOwnerPhone());
-        owner.setOwnerBusiness(ownerDetails.getOwnerBusiness());
-        owner.setOwnerBusinessId(ownerDetails.getOwnerBusinessId());
+        //owner.setOwnerBusiness(ownerDetails.getOwnerBusiness());
+//        owner.setOwnerBusinessId(ownerDetails.getOwnerBusinessId());
 
         final Owner updatedOwner = ownerRepo.save(owner);
         return ResponseEntity.ok(updatedOwner);

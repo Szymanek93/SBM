@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="PS" id="3">
+            <insert tableName="Business">
+                <column name='NAME' value="Winna Góra" type="varchar(255)"/>
+                <column name='CITY' value="Wrocław" type="varchar(255)"/>
+                <column name='DETAILS' value="Brak" type="integer"/>
+                <column name='HOUSE_NUMBER' value="15" type="integer"/>
+                <column name='POST_CODE' value="51354" type="integer"/>
+                <column name='STREET' value="ul.Maślicka" type="varchar(255)"/>
+                <column name='TYPE' value="Kopalnia Bazaltu" type="varchar(255)"/>
+                <column name='OWNER_ID' value="2" type="integer"/>
+            </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,63 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="PS" id="2">
+        <insert tableName="Owner">
+            <column name='Name' value="EUROMIA" type="varchar(255)"/>
+            <column name='City' value="Wrocław" type="varchar(255)"/>
+            <column name='Post_Code' value="51354" type="integer"/>
+            <column name='House_Number' value="15" type="integer"/>
+            <column name='Street' value="ul.Czekoladowa" type="varchar(255)"/>
+            <column name='Phone_Number' value="697201354" type="decimal"/>
+        </insert>
+<!--        <insert tableName="Owner">-->
+<!--        <column name='Name' value="KAMIENIARZ" type="varchar(255)"/>-->
+<!--        <column name='City' value="Opole" type="varchar(255)"/>-->
+<!--        <column name='PostCode' value="41-354" type="integer"/>-->
+<!--        <column name='HouseNumber' value="34" type="integer"/>-->
+<!--        <column name='Street' value="ul.Długa" type="varchar(255)"/>-->
+<!--        <column name='PhoneNumber' value="554-321-791" type="varchar(255)"/>-->
+<!--    </insert>-->
+<!--        <insert tableName="Owner">-->
+<!--            <column name='Name' value="COLAS" type="varchar(255)"/>-->
+<!--            <column name='City' value="Wrocław" type="varchar(255)"/>-->
+<!--            <column name='PostCode' value="54-244" type="integer"/>-->
+<!--            <column name='HouseNumber' value="45A" type="integer"/>-->
+<!--            <column name='Street' value="ul." type="varchar(255)"/>-->
+<!--            <column name='PhoneNumber' value="697-201-354" type="varchar(255)"/>-->
+
+<!--        </insert>-->
+<!--        <insert tableName="Owner">-->
+<!--            <column name='Name' value="GÓRAŻDŻE" type="varchar(255)"/>-->
+<!--            <column name='City' value="Kraków" type="varchar(255)"/>-->
+<!--            <column name='PostCode' value="50-354" type="integer"/>-->
+<!--            <column name='HouseNumber' value="35" type="integer"/>-->
+<!--            <column name='Street' value="ul.Smogowa" type="varchar(255)"/>-->
+<!--            <column name='PhoneNumber' value="721-421-324" type="varchar(255)"/>-->
+<!--        </insert>-->
+<!--        <insert tableName="Owner">-->
+<!--            <column name='Name' value="DOLNOŚLĄSKIE KRUSZYWA" type="varchar(255)"/>-->
+<!--            <column name='City' value="Legnica" type="varchar(255)"/>-->
+<!--            <column name='PostCode' value="50-175" type="integer"/>-->
+<!--            <column name='HouseNumber' value="19" type="integer"/>-->
+<!--            <column name='Street' value="ul.Mrągowa" type="varchar(255)"/>-->
+<!--            <column name='PhoneNumber' value="531-137-135" type="varchar(255)"/>-->
+<!--        </insert>-->
+<!--        <insert tableName="Owner">-->
+<!--            <column name='Name' value="ZIELONOGÓRSKIE KRUSZYWA" type="varchar(255)"/>-->
+<!--            <column name='City' value="Zielona Góra" type="varchar(255)"/>-->
+<!--            <column name='PostCode' value="748-646-315" type="integer"/>-->
+<!--            <column name='HouseNumber' value="120C" type="integer"/>-->
+<!--            <column name='Street' value="ul.Szczęśliwa" type="varchar(255)"/>-->
+<!--            <column name='PhoneNumber' value="698-234-720" type="varchar(255)"/>-->
+<!--        </insert>-->
+
+
+    </changeSet>
+
+
+</databaseChangeLog>

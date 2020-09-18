@@ -10,6 +10,34 @@
             <column name='LAST_NAME' value="Piotr" type="varchar(255)"/>
             <column name='name' value="Szymański" type="varchar(255)"/>
         </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Cezary" type="varchar(255)"/>
+            <column name='name' value="Czeredrecki" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Jan" type="varchar(255)"/>
+            <column name='name' value="Kaczmarski" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Michał" type="varchar(255)"/>
+            <column name='name' value="Kawalec" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Bartłomiej" type="varchar(255)"/>
+            <column name='name' value="Żach" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Aleksandra" type="varchar(255)"/>
+            <column name='name' value="Kaleta" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Anna" type="varchar(255)"/>
+            <column name='name' value="Klimek" type="varchar(255)"/>
+        </insert>
+        <insert tableName="Employee">
+            <column name='LAST_NAME' value="Ędward" type="varchar(255)"/>
+            <column name='name' value="Ącki" type="varchar(255)"/>
+        </insert>
     </changeSet>
 
 
