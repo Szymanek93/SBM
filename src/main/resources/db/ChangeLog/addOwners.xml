@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet author="PS" id="2">
+    <changeSet author="PS" id="7">
         <insert tableName="Owner">
             <column name='Name' value="EUROMIA" type="varchar(255)"/>
             <column name='City' value="Wrocław" type="varchar(255)"/>
@@ -13,6 +13,22 @@
             <column name='House_Number' value="15" type="integer"/>
             <column name='Street' value="ul.Czekoladowa" type="varchar(255)"/>
             <column name='Phone_Number' value="697201354" type="decimal"/>
+        </insert>
+        <insert tableName="Owner">
+            <column name='Name' value="COLAS" type="varchar(255)"/>
+            <column name='City' value="Wrocław" type="varchar(255)"/>
+            <column name='Post_Code' value="413745" type="integer"/>
+            <column name='House_Number' value="74" type="integer"/>
+            <column name='Street' value="ul.Dluga" type="varchar(255)"/>
+            <column name='Phone_Number' value="504354741" type="decimal"/>
+        </insert>
+        <insert tableName="Owner">
+            <column name='Name' value="Kamieniarz" type="varchar(255)"/>
+            <column name='City' value="Opole" type="varchar(255)"/>
+            <column name='Post_Code' value="51354" type="integer"/>
+            <column name='House_Number' value="15" type="integer"/>
+            <column name='Street' value="ul.Kolisa" type="varchar(255)"/>
+            <column name='Phone_Number' value="687697321" type="decimal"/>
         </insert>
 <!--        <insert tableName="Owner">-->
 <!--        <column name='Name' value="KAMIENIARZ" type="varchar(255)"/>-->

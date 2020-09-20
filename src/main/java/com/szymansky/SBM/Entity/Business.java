@@ -19,7 +19,8 @@ public class Business {
 //    @ManyToOne (optional = false)
 //    @JoinColumn(name="Owner_Id")
 //    private Business businessOwnerId;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="owner_id", referencedColumnName = "id")
     private Owner owner;
 
     @Column(name = "Type", nullable = true)
@@ -37,9 +38,9 @@ public class Business {
     @Column(name = "Details", nullable = true)
     private String businessDetails;
 
-    public String getOwnerName() {
-        return getBusinessName();
-    }
+//    public String getOwnerName() {
+//        return getBusinessName();
+//    }
 }
 
 
