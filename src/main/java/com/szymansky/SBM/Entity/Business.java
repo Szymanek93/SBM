@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +20,7 @@ public class Business {
 //    @ManyToOne (optional = false)
 //    @JoinColumn(name="Owner_Id")
 //    private Business businessOwnerId;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="owner_id", referencedColumnName = "id")
-    private Owner owner;
+
 
     @Column(name = "Type", nullable = true)
     private String businessType;
@@ -37,10 +36,14 @@ public class Business {
     private String businessHouseNumber;
     @Column(name = "Details", nullable = true)
     private String businessDetails;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="owner_id", referencedColumnName = "id")
+    private Owner owner;
 //    public String getOwnerName() {
 //        return getBusinessName();
 //    }
+
+
 }
 
 

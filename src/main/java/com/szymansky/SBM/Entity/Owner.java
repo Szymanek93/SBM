@@ -14,12 +14,12 @@ import java.util.List;
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @Column(name="Name", nullable=true)
     private String ownerName;
     @Column(name="City", nullable=true)
     private String ownerCity;
-    @Column(name="PostCode", nullable=true)
+    @Column(name="POST_CODE")
     private Integer ownerPostCode;
     @Column(name="Street", nullable=true)
     private String ownerStreet;
