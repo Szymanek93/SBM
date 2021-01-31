@@ -11,6 +11,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

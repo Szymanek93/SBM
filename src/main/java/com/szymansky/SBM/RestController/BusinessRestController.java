@@ -28,8 +28,15 @@ public class BusinessRestController {
 
 
     private final BusinessService businessService;
-    private final BusinessRepository businessRepository=null;
+    private final BusinessRepository businessRepository;
     private final BusinessMapper businessMapper;
+
+//    @GetMapping("/{id}")
+//    public BusinessDTO getBusinessById(@PathVariable Long id) {
+//        return businessService.findBusinessById(id)
+//                .map(businessMapper::toDTO)
+//                .orElseThrow(supplyBusinessNotFound(id));
+//    }
 
     @GetMapping("/{id}")
     public BusinessDTO getBusinessById(@PathVariable Long id) {
@@ -55,7 +62,10 @@ public class BusinessRestController {
         return businessService.save(businessDTO)
                 .orElseThrow(supplyBusinessNotSaved());
     }
+    @ResponseStatus(code = HttpStatus.NOT_FOUND, reason ="ajajajaja")
+    public class AJException extends Exception{
 
+    }
     private Supplier<ResponseStatusException> supplyBusinessNotSaved() {
         return () -> {
             String message = "Something Wrong";
