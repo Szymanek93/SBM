@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 public class BusinessMapper {
 
-    private final OwnerRepository ownerRepository = null;
+    private final OwnerRepository ownerRepository;
 
     public BusinessDTO toDTO(Business business){
         return BusinessDTO.builder()
@@ -27,7 +27,7 @@ public class BusinessMapper {
                 .businessPostCode(business.getBusinessPostCode())
                 .businessStreet(business.getBusinessStreet())
                 .ownerId(business.getOwner().getId())
-                .id(business.getId())
+                .businessId(business.getId())
                 .build();
     }
 
@@ -40,6 +40,7 @@ public class BusinessMapper {
                 .businessPostCode(businessDTO.getBusinessPostCode())
                 .businessStreet(businessDTO.getBusinessStreet())
                 .owner(getOwnerById(businessDTO.getOwnerId()))
+                .id(businessDTO.getBusinessId())
                 .build();
     }
  //Do klasy ownerService

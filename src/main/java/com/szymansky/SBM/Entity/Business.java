@@ -17,11 +17,6 @@ public class Business {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
 
-//    @ManyToOne (optional = false)
-//    @JoinColumn(name="Owner_Id")
-//    private Business businessOwnerId;
-
-
     @Column(name = "Type")
     private String businessType;
     @Column(name = "Name")

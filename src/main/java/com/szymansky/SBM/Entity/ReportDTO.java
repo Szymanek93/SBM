@@ -14,14 +14,16 @@ import java.util.Date;
 @Builder
 public class ReportDTO {
 
-    private Long Id;
-    private String reportCompleteTasks;
-    @Temporal(TemporalType.DATE)
-    private Date reportWorksDate;
-    @Temporal(TemporalType.DATE)
-    private Date reportDevelopmentDate;
+    private Long reportId;
+    private String reportCompletedTasks;
     private Long reportPointsAmount;
     private String reportOtherTasks;
     private Long employeeId;
     private Long businessId;
+
+    @Temporal(TemporalType.DATE)
+    private Date reportWorksDate;
+
+    @Temporal(TemporalType.DATE)
+    private Date reportDevelopmentDate;
 }

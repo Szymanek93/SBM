@@ -7,6 +7,7 @@ import com.szymansky.SBM.mapper.BusinessMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,10 @@ public class BusinessService {
 
     public Optional<Business> findBusinessById(Long id) {
         return businessRepository.findById(id);
+    }
+
+    public List<Business> findAllBusiness(){
+        return businessRepository.findAll();
     }
 
     public Optional<Business> save(BusinessDTO businessDTO) {

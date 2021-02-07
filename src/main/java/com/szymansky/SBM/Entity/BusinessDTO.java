@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 public class BusinessDTO {
 
-    private Long id;
+    private Long businessId;
     private String businessType;
     private String businessName;
     private String businessCity;

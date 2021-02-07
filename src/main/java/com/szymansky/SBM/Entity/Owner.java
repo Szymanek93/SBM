@@ -16,15 +16,15 @@ public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="Name", nullable=true)
+    @Column(name="Name")
     private String ownerName;
-    @Column(name="City", nullable=true)
+    @Column(name="City")
     private String ownerCity;
     @Column(name="POST_CODE")
     private Integer ownerPostCode;
-    @Column(name="Street", nullable=true)
+    @Column(name="Street")
     private String ownerStreet;
-    @Column(name="HouseNumber", nullable=true)
+    @Column(name="HouseNumber")
     private String ownerHouseNumber;
     @Column(name="PhoneNumber")
     private  Long ownerPhone;

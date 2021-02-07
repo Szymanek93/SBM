@@ -19,31 +19,33 @@ import java.util.function.Supplier;
 @Component
 @RequiredArgsConstructor
 public class ReportMapper {
-    private final ReportRepository reportRepository = null;
-    private final BusinessRepository businessRepository = null;
-    private final EmployeeRepository employeeRepository = null;
+//    private final ReportRepository reportRepository = null;
+    private final BusinessRepository businessRepository;
+    private final EmployeeRepository employeeRepository;
 
     public ReportDTO toDTO(Report report) {
         return ReportDTO.builder()
-                .reportCompleteTasks(report.getCompleteTasks())
+                .reportCompletedTasks(report.getCompletedTasks())
                 .reportDevelopmentDate(report.getDevelopmentDate())
                 .reportWorksDate((report.getWorksDate()))
                 .reportOtherTasks(report.getOtherTasks())
                 .reportPointsAmount(report.getPointsAmount())
                 .businessId(report.getBusiness().getId())
                 .employeeId(report.getEmployee().getId())
+                .reportId(report.getId())
                 .build();
     }
 
     public Report fromDTO(ReportDTO reportDTO) {
         return Report.builder()
-                .completeTasks(reportDTO.getReportCompleteTasks())
+                .completedTasks(reportDTO.getReportCompletedTasks())
                 .developmentDate(reportDTO.getReportDevelopmentDate())
                 .worksDate(reportDTO.getReportWorksDate())
                 .otherTasks(reportDTO.getReportOtherTasks())
                 .pointsAmount(reportDTO.getReportPointsAmount())
                 .business(getBusinessById(reportDTO.getBusinessId()))
                 .employee(getEmployeeById(reportDTO.getEmployeeId()))
+                .Id(reportDTO.getReportId())
                 .build();
     }
 
