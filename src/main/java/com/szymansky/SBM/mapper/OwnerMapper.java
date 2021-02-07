@@ -12,6 +12,7 @@ public class OwnerMapper {
 
     public OwnerDTO toDTO (Owner owner) {
         return OwnerDTO.builder()
+//                .ownerId(owner.getId())
                 .ownerCity(owner.getOwnerCity())
                 .ownerHouseNumber(owner.getOwnerHouseNumber())
                 .ownerName(owner.getOwnerName())
@@ -22,6 +23,7 @@ public class OwnerMapper {
     }
     public Owner fromDTO(OwnerDTO ownerDTO){
         return Owner.builder()
+                .id(ownerDTO.getOwnerId())
                 .ownerCity(ownerDTO.getOwnerCity())
                 .ownerHouseNumber(ownerDTO.getOwnerHouseNumber())
                 .ownerName(ownerDTO.getOwnerName())

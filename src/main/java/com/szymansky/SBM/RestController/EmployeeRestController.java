@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.text.MessageFormat;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -41,9 +40,11 @@ public class EmployeeRestController {
     //Mapperversion
 
     @GetMapping("/{id}")
-    public EmployeeDTO getEmployeesById (@PathVariable Long id){
+    public EmployeeDTO getEmployeesById(@PathVariable Long id) {
+        String message = "kdsoadksaodkasodk";
         return employeeService.findEmployeeById(id)
                 .map(employeeMapper::toDTO)
+//                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,message));
                 .orElseThrow(supplyEmployeeNotFound(id));
     }
 
@@ -53,6 +54,12 @@ public class EmployeeRestController {
         return employeeRepo.findAll();
     }
 
+    @GetMapping("allEmployees")
+    public List<Employee> getAllEmployees() {
+        return employeeService.findAllEmployee();
+    }
+
+
     //add new record
     @PostMapping("")
     public Employee addEmployee(@RequestBody EmployeeDTO employeeDTO) {
@@ -61,29 +68,49 @@ public class EmployeeRestController {
                 .orElseThrow(supplyEmployeeNotSaved());
     }
 
+    //    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+//    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDetails){
+//        Employee employee = employeeRepo.findById(id)
+//                .orElseThrow(supplyEmployeeNotFound(id));
+//
+//        employee.setId(employeeDetails.getId());
+//        employee.setName(employeeDetails.getName());
+//        employee.setLastName(employeeDetails.getLastName());
+//        final Employee updatedEmployee = employeeRepo.save(employee);
+//        return ResponseEntity.ok(updatedEmployee);
+//    }
+    public class EmployeeNotFoundExceptions extends RuntimeException {
+        public EmployeeNotFoundExceptions(long id) {
+            super("Could not find employee: " + id);
+        }
+    }
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDetails){
-        Employee employee = employeeRepo.findById(id)
+    public Optional<Employee> updateEmployeeDTO(@PathVariable(value = "id") Long id, @RequestBody EmployeeDTO employeeDetails) {
+        EmployeeDTO employeeDTO = employeeService.findEmployeeById(id)
+                .map(employeeMapper::toDTO)
                 .orElseThrow(supplyEmployeeNotFound(id));
 
-        employee.setId(employeeDetails.getId());
-        employee.setName(employeeDetails.getName());
-        employee.setLastName(employeeDetails.getLastName());
-        final Employee updatedEmployee = employeeRepo.save(employee);
-        return ResponseEntity.ok(updatedEmployee);
+        employeeDTO.setEmployeeId(employeeDetails.getEmployeeId());
+        employeeDTO.setEmployeeName(employeeDetails.getEmployeeName());
+        employeeDTO.setEmployeeLastName(employeeDetails.getEmployeeLastName());
+        return employeeService.save(employeeDTO);
+
     }
 
+
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable(value = "id") Long id){
+    public void deleteEmployee(@PathVariable(value = "id") Long id) {
         employeeRepo.deleteById(id);
     }
 
-    private Supplier<ResponseStatusException> supplyEmployeeNotFound (Long id){
-        return ()-> {
-            String message= MessageFormat.format("Employee not found for this id:{0}",id.toString()) ;
-            return new ResponseStatusException(HttpStatus.NOT_FOUND,message);
+
+    public Supplier<ResponseStatusException> supplyEmployeeNotFound(Long id) {
+        return () -> {
+            String message = MessageFormat.format("Employee not found for this id:{0}", id.toString());
+            return new ResponseStatusException(HttpStatus.NOT_FOUND, message);
         };
     }
+
     private Supplier<ResponseStatusException> supplyEmployeeNotSaved() {
         return () -> {
             String message = "Something Wrong";

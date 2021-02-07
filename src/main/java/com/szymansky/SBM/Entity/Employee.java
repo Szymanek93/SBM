@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @Column(name="Name")
     private String name;
     @Column(name="lastName")
@@ -23,7 +23,7 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Employee(Long id) {
-        Id = id;
-    }
+//    public Employee(Long id) {
+//        id = id;
+//    }
 }

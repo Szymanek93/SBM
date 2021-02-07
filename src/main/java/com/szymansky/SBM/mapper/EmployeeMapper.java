@@ -19,6 +19,7 @@ public class EmployeeMapper {
     }
     public Employee fromDTO(EmployeeDTO employeeDTO){
         return Employee.builder()
+                .id(employeeDTO.getEmployeeId())
                 .name(employeeDTO.getEmployeeName())
                 .lastName(employeeDTO.getEmployeeLastName())
                 .build();

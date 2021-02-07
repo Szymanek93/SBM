@@ -1,10 +1,7 @@
 package com.szymansky.SBM.Entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,29 +12,28 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+
 public class Report {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @OneToOne
-    private Employee employeeId;
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name="employeeId", referencedColumnName = "id")
+    private Employee employee;
 
-    @OneToOne
-    private Business businessId;
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name="businessId", referencedColumnName = "id")
+    private Business business;
 
     private String completeTasks;
-
     @Temporal(TemporalType.DATE)
     private Date worksDate;
-
     @Temporal(TemporalType.DATE)
     private Date developmentDate;
-
-
     private Long pointsAmount;
-
     private String otherTasks;
 }
 //

@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 
 public class OwnerDTO {
-   //private Long id;
+    private Long ownerId;
     private String ownerName;
     private String ownerCity;
     private Integer ownerPostCode;

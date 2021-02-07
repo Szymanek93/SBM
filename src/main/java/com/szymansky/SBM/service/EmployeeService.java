@@ -8,6 +8,7 @@ import com.szymansky.SBM.mapper.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,7 +21,11 @@ public class EmployeeService {
     public Optional<Employee> findEmployeeById(Long id)
     {return employeeRepository.findById(id);}
 
-    public  Optional<Employee> save (EmployeeDTO employeeDTO){
+    public List<Employee> findAllEmployee(){
+        return employeeRepository.findAll();
+    }
+
+    public Optional<Employee> save (EmployeeDTO employeeDTO){
         return Optional.ofNullable(employeeDTO)
                 .map(employeeMapper::fromDTO)
                 .map(employeeRepository::save);
