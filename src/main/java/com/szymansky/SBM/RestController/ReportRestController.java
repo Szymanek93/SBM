@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.Converter;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +56,6 @@ public class ReportRestController {
         public List<Report> getReports() {
         return reportService.findAllReport();
     }
-
     //add new record
     @PostMapping("")
     public Report addReport(@RequestBody ReportDTO reportDTO) {
@@ -100,13 +100,16 @@ public class ReportRestController {
 //        Report report = optionalReport.get();
 
         reportDTO.setReportId(reportDetails.getReportId());
-        reportDTO.setEmployeeId(reportDetails.getEmployeeId());
-        reportDTO.setBusinessId(reportDetails.getBusinessId());
+//        reportDTO.setEmployeeId(reportDetails.getEmployeeId());
+//        reportDTO.setBusinessId(reportDetails.getBusinessId());
         reportDTO.setReportCompletedTasks(reportDetails.getReportCompletedTasks());
         reportDTO.setReportDevelopmentDate(reportDetails.getReportDevelopmentDate());
         reportDTO.setReportOtherTasks(reportDetails.getReportOtherTasks());
         reportDTO.setReportPointsAmount((reportDetails.getReportPointsAmount()));
         reportDTO.setReportWorksDate((reportDetails.getReportWorksDate()));
+        reportDTO.setBusinessName(reportDetails.getBusinessName());
+        reportDTO.setEmployeeName(reportDetails.getEmployeeName());
+        reportDTO.setEmployeeLastName(reportDetails.getEmployeeLastName());
 
         return reportService.save(reportDTO);
 //        final Report updatedReport = reportRepository.save(report);

@@ -3,6 +3,7 @@ package com.szymansky.SBM.RestController;
 
 import com.szymansky.SBM.Entity.Invoice;
 import com.szymansky.SBM.Entity.InvoiceDTO;
+import com.szymansky.SBM.Entity.ReportDTO;
 import com.szymansky.SBM.Repository.InvoiceRepository;
 import com.szymansky.SBM.mapper.InvoiceMapper;
 import com.szymansky.SBM.service.InvoiceService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.text.MessageFormat;
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -33,12 +36,35 @@ public class InvoiceRestController {
     }
 
     @GetMapping("/{id}")
-    public InvoiceDTO getInvoiceById(@PathVariable Long id){
+    public InvoiceDTO getInvoiceById(@PathVariable Long id) {
         return invoiceService.findInvoiceById(id)
                 .map(invoiceMapper::toDTO)
                 .orElseThrow(supplyInvoiceNotFound(id));
-
     }
+    @GetMapping
+    public List<Invoice> getInvoices() {
+        return invoiceService.findAllInvoice();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteInvoice(@PathVariable(value = "id") Long id) {
+        invoiceRepository.deleteById(id);
+    }
+
+    @PutMapping(value = "/{id}")
+    public Optional<Invoice> updateInvoiceDTO(@PathVariable(value = "id") Long id, @RequestBody InvoiceDTO invoiceDetails) {
+        InvoiceDTO invoiceDTO = invoiceService.findInvoiceById(id)
+                .map(invoiceMapper::toDTO)
+                .orElseThrow((supplyInvoiceNotFound(id)));
+
+        invoiceDTO.setInvoicedBooked(invoiceDetails.getInvoicedBooked());
+        invoiceDTO.setInvoicedIssued(invoiceDetails.getInvoicedIssued());
+        invoiceDTO.setInvoicedPrice(invoiceDetails.getInvoicedPrice());
+        invoiceDTO.setReportId(invoiceDetails.getReportId());
+
+        return invoiceService.save(invoiceDTO);
+    }
+
 
     private Supplier<ResponseStatusException> supplyInvoiceNotFound(Long id) {
         return () -> {

@@ -26,6 +26,7 @@ public class BusinessMapper {
                 .businessName(business.getBusinessName())
                 .businessPostCode(business.getBusinessPostCode())
                 .businessStreet(business.getBusinessStreet())
+                .businessType(business.getBusinessType())
                 .ownerId(business.getOwner().getId())
                 .businessId(business.getId())
                 .build();
@@ -39,6 +40,7 @@ public class BusinessMapper {
                 .businessName(businessDTO.getBusinessName())
                 .businessPostCode(businessDTO.getBusinessPostCode())
                 .businessStreet(businessDTO.getBusinessStreet())
+                .businessType(businessDTO.getBusinessType())
                 .owner(getOwnerById(businessDTO.getOwnerId()))
                 .id(businessDTO.getBusinessId())
                 .build();

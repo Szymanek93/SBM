@@ -13,6 +13,7 @@ public class EmployeeMapper {
 
     public EmployeeDTO toDTO(Employee employee){
         return EmployeeDTO.builder()
+                .employeeId(employee.getId())
                 .employeeName(employee.getName())
                 .employeeLastName(employee.getLastName())
                 .build();

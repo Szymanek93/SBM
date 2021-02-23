@@ -17,11 +17,14 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     // faktura wystawiona
+    @Column (name="Issued")
     private Boolean issued;
     //mfaktura zaksiegowana
+    @Column (name="Booked")
     private Boolean booked;
+    @Column (name="Price")
     private Long price;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "report_id", referencedColumnName = "Id")
     private Report report;
 

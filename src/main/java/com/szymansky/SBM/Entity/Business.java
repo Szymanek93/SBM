@@ -31,7 +31,8 @@ public class Business {
     private String businessHouseNumber;
     @Column(name = "Details")
     private String businessDetails;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
+//            (cascade = CascadeType.ALL)
     @JoinColumn(name="owner_id", referencedColumnName = "id")
     private Owner owner;
 //    public String getOwnerName() {

@@ -6,6 +6,9 @@ import com.szymansky.SBM.Entity.ReportDTO;
 import com.szymansky.SBM.Repository.ReportRepository;
 import com.szymansky.SBM.mapper.ReportMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,4 +34,12 @@ public class ReportService {
                 .map(reportRepository::save);
     }
 
+//    @Override
+//    public Page<ReportDTO> getAllReports (){
+//        List<Report> reports = reportRepository.findAll();
+//        Pageable pageable;
+//        Page <Report> reportPage = new PageImpl<Report>(reports,pageable, reports.size());
+//
+//
+//    }
 }

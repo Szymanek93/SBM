@@ -68,6 +68,11 @@ public class EmployeeRestController {
                 .orElseThrow(supplyEmployeeNotSaved());
     }
 
+//    @PostMapping("")
+//    public Employee addEmployee(@RequestBody Employee employee) {
+//        return employeeRepo.save(employee);
+//    }
+
     //    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 //    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long id, @RequestBody Employee employeeDetails){
 //        Employee employee = employeeRepo.findById(id)

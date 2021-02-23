@@ -32,9 +32,9 @@ public class InvoiceMapper {
                 .invoicedPrice(invoice.getPrice())
                 .invoicedBooked(invoice.getBooked())
                 .invoicedIssued(invoice.getIssued())
-                .reportEmployeeId(invoice.getReport().getEmployee().getId())
-                .reportBusinessId(invoice.getReport().getBusiness().getId())
-                .reportCompletedTasks(invoice.getReport().getCompletedTasks())
+//                .reportEmployeeId(invoice.getReport().getEmployee().getId())
+//                .reportBusinessId(invoice.getReport().getBusiness().getId())
+//                .reportCompletedTasks(invoice.getReport().getCompletedTasks())
                 .reportId(invoice.getReport().getId())
                 .build();
     }
