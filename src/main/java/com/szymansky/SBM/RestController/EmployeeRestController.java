@@ -41,10 +41,8 @@ public class EmployeeRestController {
 
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeesById(@PathVariable Long id) {
-        String message = "kdsoadksaodkasodk";
         return employeeService.findEmployeeById(id)
                 .map(employeeMapper::toDTO)
-//                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,message));
                 .orElseThrow(supplyEmployeeNotFound(id));
     }
 

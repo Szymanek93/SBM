@@ -30,11 +30,11 @@ public class ReportMapper {
                 .reportWorksDate((report.getWorksDate()))
                 .reportOtherTasks(report.getOtherTasks())
                 .reportPointsAmount(report.getPointsAmount())
-//                .businessId(report.getBusiness().getId())
-//                .employeeId(report.getEmployee().getId())
-                .employeeName(report.getEmployee().getName())
-                .employeeLastName(report.getEmployee().getLastName())
-                .businessName(report.getBusiness().getBusinessName())
+                .businessId(report.getBusiness().getId())
+                .employeeId(report.getEmployee().getId())
+//                .employeeName(report.getEmployee().getName())
+//                .employeeLastName(report.getEmployee().getLastName())
+//                .businessName(report.getBusiness().getBusinessName())
                 .reportId(report.getId())
                 .build();
     }
@@ -46,8 +46,8 @@ public class ReportMapper {
                 .worksDate(reportDTO.getReportWorksDate())
                 .otherTasks(reportDTO.getReportOtherTasks())
                 .pointsAmount(reportDTO.getReportPointsAmount())
-//                .business(getBusinessById(reportDTO.getBusinessId()))
-//                .employee(getEmployeeById(reportDTO.getEmployeeId()))
+                .business(getBusinessById(reportDTO.getBusinessId()))
+                .employee(getEmployeeById(reportDTO.getEmployeeId()))
                 //.employee(getEmployeeById(reportDTO.getEmployeeName()))
                 .Id(reportDTO.getReportId())
                 .build();

@@ -18,11 +18,11 @@ public class ReportDTO {
     private String reportCompletedTasks;
     private Long reportPointsAmount;
     private String reportOtherTasks;
-//    private Long employeeId;
-//    private Long businessId;
-    private String employeeName;
-    private String employeeLastName;
-    private String businessName;
+    private Long employeeId;
+    private Long businessId;
+//    private String employeeName;
+//    private String employeeLastName;
+//    private String businessName;
 
     @Temporal(TemporalType.DATE)
     private Date reportWorksDate;

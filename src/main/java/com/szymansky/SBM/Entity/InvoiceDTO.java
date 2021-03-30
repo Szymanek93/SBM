@@ -14,7 +14,6 @@ public class InvoiceDTO {
     private Boolean invoicedBooked;
     private Long invoicedPrice;
     private String reportCompletedTasks;
-    private Long reportEmployeeId;
     private Long reportBusinessId;
     private Long reportId;
 

@@ -100,16 +100,16 @@ public class ReportRestController {
 //        Report report = optionalReport.get();
 
         reportDTO.setReportId(reportDetails.getReportId());
-//        reportDTO.setEmployeeId(reportDetails.getEmployeeId());
-//        reportDTO.setBusinessId(reportDetails.getBusinessId());
+        reportDTO.setEmployeeId(reportDetails.getEmployeeId());
+        reportDTO.setBusinessId(reportDetails.getBusinessId());
         reportDTO.setReportCompletedTasks(reportDetails.getReportCompletedTasks());
         reportDTO.setReportDevelopmentDate(reportDetails.getReportDevelopmentDate());
         reportDTO.setReportOtherTasks(reportDetails.getReportOtherTasks());
         reportDTO.setReportPointsAmount((reportDetails.getReportPointsAmount()));
         reportDTO.setReportWorksDate((reportDetails.getReportWorksDate()));
-        reportDTO.setBusinessName(reportDetails.getBusinessName());
-        reportDTO.setEmployeeName(reportDetails.getEmployeeName());
-        reportDTO.setEmployeeLastName(reportDetails.getEmployeeLastName());
+//        reportDTO.setBusinessName(reportDetails.getBusinessName());
+//        reportDTO.setEmployeeName(reportDetails.getEmployeeName());
+//        reportDTO.setEmployeeLastName(reportDetails.getEmployeeLastName());
 
         return reportService.save(reportDTO);
 //        final Report updatedReport = reportRepository.save(report);
